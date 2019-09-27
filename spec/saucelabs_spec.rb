@@ -12,8 +12,8 @@ describe 'GitLab' do
         username: ENV['SAUCELABS_USERNAME'],
         accesskey: ENV['SAUCELABS_ACCESS_KEY'],
         tags: 'gitlab-saucelabs-example',
-        name: 'gitlab-saucelabs-example',
-        build: ENV['CI_JOB_ID']
+        name: "gitlab-saucelabs-example-#{ENV['CI_JOB_ID']}",
+        build: 'gitlab-saucelabs-example'
       }
     }
   end
