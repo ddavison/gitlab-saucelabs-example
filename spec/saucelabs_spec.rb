@@ -9,7 +9,7 @@ describe 'GitLab' do
       browser_version: '77.0',
       platform_name: 'macOS 10.14',
       'sauce:options': {
-        username: ENV['SAUCELABS_USER'],
+        username: ENV['SAUCELABS_USERNAME'],
         accesskey: ENV['SAUCELABS_ACCESS_KEY'],
         tags: 'gitlab-saucelabs-example',
         name: 'gitlab-saucelabs-example',
