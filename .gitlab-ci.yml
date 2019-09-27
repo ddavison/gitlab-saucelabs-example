@@ -6,6 +6,7 @@ stages:
 run-against-sauce:
   stage: test
   before_script:
+    - gem install bundler
     - bundle install
   script:
     - bundle exec rspec
