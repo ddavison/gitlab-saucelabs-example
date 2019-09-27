@@ -1,0 +1,15 @@
+image: ruby:2.6.3
+
+stages:
+  - test
+
+run-against-sauce:
+  stage: test
+  before_script:
+    - bundle install
+  script:
+    - bundle exec rspec
+  only:
+    refs:
+      - master
+  when: manual
