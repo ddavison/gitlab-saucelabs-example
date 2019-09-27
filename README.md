@@ -23,11 +23,11 @@ let(:capabilities) do
     browser_version: '77.0',
     platform_name: 'macOS 10.14',
     'sauce:options': {
-      username: ENV['SAUCELABS_USER'],
+      username: ENV['SAUCELABS_USERNAME'],
       accesskey: ENV['SAUCELABS_ACCESS_KEY'],
       tags: 'gitlab-saucelabs-example',
-      name: 'gitlab-saucelabs-example',
-      build: ENV['CI_JOB_ID']
+      name: "gitlab-saucelabs-example-#{ENV['CI_JOB_ID']}",
+      build: 'gitlab-saucelabs-example'
     }
   }
 end
@@ -35,6 +35,10 @@ end
 
 Here we are configuring the [Desired Capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities)
 for Selenium as well as SauceLabs.
+
+You'll notice we are also specifying `ENV['CI_JOB_ID']`. This is a 
+[pre-defined GitLab CI environment variable](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html) and it
+is to differentiate each run by associating it with a GitLab Job.
 
 Under the `sauce:options` hash, we specify
 [everything we'd like to configure SauceLabs](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) with.
